@@ -1,0 +1,91 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution{
+  public static void main(String[] args){
+   FastReader fs = new FastReader();
+   PrintWriter out = new PrintWriter(System.out);	
+  
+   int n = fs.nextInt();
+   String[] s = new String[n];
+   for(int i = 0; i < s.length; i++){
+         s[i] = fs.next();
+   }
+   String[] str = {"++X", "X++", "--X", "X--"};
+   int val = 0;
+   for(int i = 0; i < n; i++){
+       String st = s[i];
+       if(st.equals(str[0]) || st.equals(str[1])){
+            val++;
+       }
+       else{
+            val--;
+       }
+   }
+   out.println(val);
+   out.flush();
+}
+
+  static long count(long n){
+     long ct = 0;
+     while(n > 0){
+         n = n / 10;
+         ct++;
+     }
+     return ct;
+  }
+
+  static void sort(int[] a) {
+		ArrayList<Integer> l = new      ArrayList<>();
+		for (int i : a)
+			l.add(i);
+		Collections.sort(l);
+		for (int i = 0; i < a.length; i++)
+			a[i] = l.get(i);
+	}
+
+  static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+ 
+        public FastReader()
+        {
+            br = new BufferedReader(
+                new InputStreamReader(System.in));
+        }
+ 
+        String next()
+        {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+ 
+        int nextInt() { return Integer.parseInt(next()); }
+ 
+        long nextLong() { return Long.parseLong(next()); }
+ 
+        double nextDouble()
+        {
+            return Double.parseDouble(next());
+        }
+ 
+        String nextLine()
+        {
+            String str = "";
+            try {
+                str = br.readLine();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+   }
+}
